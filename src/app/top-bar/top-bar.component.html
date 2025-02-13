@@ -1,15 +1,14 @@
-<div class="bg-primary d-flex p-2 justify-content-around  align-middle">
-    <a href="#" [routerLink]="[ '/' ]"
-    routerLinkActive="active">
-    <h2 class="text-light ">
-        My Store
-    </h2>
+<a [routerLink]="['/']">
+  <h1>My Store</h1>
 </a>
-   
-    
-    <a href="#" [routerLink]="[ '/cart' ]"
-    routerLinkActive="active"><button class="btn btn-light d-flex align-middle text-primary">
-        <img style="height: 25px; width: 20px;" class="pt-1" src="assets/carritodelacompra.png" alt="Carrito">
-        Checkout
-    </button></a>
-</div>
+
+<a routerLink="/cart" class="button fancy-button">
+  <em class="material-icons">shopping_cart</em> Checkout
+</a>
+
+
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at https://angular.io/license
+-->

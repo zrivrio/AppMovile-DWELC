@@ -1,18 +1,24 @@
 import { Component } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+
 import { CartService } from '../cart.service';
-import { CommonModule, NgFor } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+
 @Component({
   selector: 'app-cart',
-  imports: [CommonModule,HttpClientModule, NgFor],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css'
 })
 export class CartComponent {
-  items: any[] = []; 
-  constructor(private cartService: CartService) { }
 
-  ngOnInit(): void {
-    this.items = this.cartService.getItems();
+  items = this.cartService.getItems();
+  checkoutForm = this.formBuilder.group({ name: '', address: '' });
+  
+  constructor(private cartService: CartService, private formBuilder: FormBuilder) { }
+
+  onSubmit(): void {
+    // Process checkout data here
+    this.items = this.cartService.clearCart();
+    console.warn('Your order has been submitted', this.checkoutForm.value);
+    this.checkoutForm.reset();
   }
 }
