@@ -1,0 +1,6 @@
+<h2>Providers</h2>
+<div *ngFor="let provider of items">
+    <a [title]="provider.name + ' details'" [routerLink]="['/provider', provider.id]">
+        {{ provider.name }}
+    </a>
+</div>

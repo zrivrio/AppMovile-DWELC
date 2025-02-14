@@ -1,3 +1,4 @@
-export interface Providers {
+export interface ProvidersM {
+  id: number;
   name: string;
 }
