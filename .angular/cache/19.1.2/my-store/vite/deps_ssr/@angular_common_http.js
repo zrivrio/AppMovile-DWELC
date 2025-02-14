@@ -1,7 +1,9 @@
+import { createRequire } from 'module';const require = createRequire(import.meta.url);
 import {
   FetchBackend,
   HTTP_INTERCEPTORS,
   HTTP_ROOT_INTERCEPTOR_FNS,
+  HTTP_TRANSFER_CACHE_ORIGIN_MAP,
   HttpBackend,
   HttpClient,
   HttpClientJsonpModule,
@@ -26,7 +28,7 @@ import {
   HttpXsrfTokenExtractor,
   JsonpClientBackend,
   JsonpInterceptor,
-  PRIMARY_HTTP_BACKEND,
+  REQUESTS_CONTRIBUTE_TO_STABILITY,
   provideHttpClient,
   withFetch,
   withHttpTransferCache,
@@ -36,12 +38,14 @@ import {
   withNoXsrfProtection,
   withRequestsMadeViaParent,
   withXsrfConfiguration
-} from "./chunk-OJ4BOSM4.js";
-import "./chunk-NR7RFMUB.js";
-import "./chunk-43PFYEGW.js";
+} from "./chunk-RBTN2UGQ.js";
+import "./chunk-6QKLVJN3.js";
+import "./chunk-2EWNKAHN.js";
+import "./chunk-YHCV7DAQ.js";
 export {
   FetchBackend,
   HTTP_INTERCEPTORS,
+  HTTP_TRANSFER_CACHE_ORIGIN_MAP,
   HttpBackend,
   HttpClient,
   HttpClientJsonpModule,
@@ -76,7 +80,6 @@ export {
   HTTP_ROOT_INTERCEPTOR_FNS as ɵHTTP_ROOT_INTERCEPTOR_FNS,
   HttpInterceptorHandler as ɵHttpInterceptingHandler,
   HttpInterceptorHandler as ɵHttpInterceptorHandler,
-  PRIMARY_HTTP_BACKEND as ɵPRIMARY_HTTP_BACKEND,
+  REQUESTS_CONTRIBUTE_TO_STABILITY as ɵREQUESTS_CONTRIBUTE_TO_STABILITY,
   withHttpTransferCache as ɵwithHttpTransferCache
 };
-//# sourceMappingURL=@angular_common_http.js.map
