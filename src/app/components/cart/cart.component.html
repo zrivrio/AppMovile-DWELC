@@ -11,11 +11,20 @@
 <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
   <div>
     <label for="name">Name</label>
-    <input id="name" type="text" formControlName="name">
+    <input id="name" type="text" formControlName="name" required>
   </div>
   <div>
     <label for="address">Address</label>
-    <input id="address" type="text" formControlName="address">
+    <input id="address" type="text" formControlName="address" required>
   </div>
-  <button class="button" type="submit">Purchase</button>
+  <div>
+    <label for="shipping">Shipping</label>
+    <select id="shipping" formControlName="shipping" required>
+      <option value="">Select a shipping option</option>
+      <option *ngFor="let shipping of shippingCosts | async" [value]="shipping.type">
+        {{ shipping.type }} - {{ shipping.price | currency }}
+      </option>
+    </select>
+  </div>
+  <button class="button" type="submit" [disabled]="checkoutForm.invalid">Purchase</button>
 </form>
