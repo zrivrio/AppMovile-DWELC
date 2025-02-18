@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { CartService } from '../../service/cart.service';
+import { map, Observable } from 'rxjs';
 
 @Component({
     selector: 'app-top-bar',
@@ -7,6 +9,14 @@ import { Component } from '@angular/core';
     standalone: false
 })
 export class TopBarComponent {
+    
+    numberOfItems$: Observable<number>;
+
+  constructor(private cartService: CartService) {
+    this.numberOfItems$ = this.cartService.itemsObservable.pipe(
+      map(items => items.length)
+    );
+  }
 
 }
 
