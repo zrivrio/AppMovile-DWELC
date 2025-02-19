@@ -12,5 +12,28 @@
             "id":3,
             "name": "GadgetGuru Ltd."
         }
+    ],
+    "products2":[
+        {
+            "product_id": 4,
+            "product_name": "Phone XL",
+            "cost": 799,
+            "detail": "A large phone with one of the best screen",
+            "provider": "2"
+          },
+          {
+            "product_id": 5,
+            "product_name": "Phone Mini",
+            "cost": 699,
+            "detail": "A great phone with one of the best cameras",
+            "supplier": "2"
+          },
+          {
+            "product_id": 6,
+            "product_name": "Phone Standard",
+            "cost": 299,
+            "detail": "",
+            "supplier": "3"
+          }
     ]
 }
