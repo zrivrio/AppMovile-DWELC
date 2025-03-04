@@ -6,7 +6,7 @@ import { CartService } from '../../service/cart.service';
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
-  styleUrls: ['./product-details.component.css'], // 🔹 Corrección en styleUrls
+  styleUrls: ['./product-details.component.css'],
   standalone: false
 })
 export class ProductDetailsComponent implements OnInit {
@@ -21,23 +21,8 @@ export class ProductDetailsComponent implements OnInit {
     if(!routeParams){
     alert("No se han encontrado datos")
     }
-    // Find the product that correspond with the id provided in route.
-    this.product = this.products.find(product => product.id === productIdFromRoute);
-
-    this.cartService.getItemJson().subscribe(products2 => {
-      const productsMap = products2.map(p => ({
-        id: p.product_id,
-        name: p.product_name,
-        price: p.cost,
-        description: p.detail,
-        provider: { id: Number(p.suppiler), name: "" }
-      }));
-
-      this.products = [...this.products, ...productsMap];
-
-      if (!this.product) {
-        this.product = this.products.find(product => product.id === productIdFromRoute);
-      }
+    this.cartService.mapProducts().subscribe(productList => {
+      this.product = productList.find(p => p.id === productIdFromRoute);
     });
   }
 

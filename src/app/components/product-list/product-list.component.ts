@@ -15,11 +15,9 @@ export class ProductListComponent {
  
 
   constructor(private cartService: CartService){
-    let listaProductos = this.cartService.mapProducts();
-    listaProductos.forEach(e => {
-    products.push(e)
-   });
-
+    this.cartService.mapProducts().subscribe(mappedProducts => {
+      this.products = mappedProducts;
+    });    
   }
 
   share() {
