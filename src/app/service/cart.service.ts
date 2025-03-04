@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Product } from '../models/products';
+import { Product, products } from '../models/products';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Product2 } from '../models/products2';
@@ -28,6 +28,20 @@ export class CartService {
   getItemJson(){
     return this.http.get<Product2[]>(this.url);
   }
+
+ mapProducts(): Product[] | any {
+  let listProducts : Product[] = [...products]
+  this.getItemJson().subscribe( products2 => {
+    const productsMap = products2.map(p =>({
+      id: p.product_id,
+      name: p.product_name,
+      price: p.cost,
+      description: p.detail,
+      provider:{id: Number(p.suppiler) , name:""}
+    }));
+    return listProducts = [...products, ...productsMap]
+  });
+ }
 
   clearCart() {
     this.items = [];

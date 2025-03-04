@@ -11,24 +11,15 @@ import { Product2 } from '../../models/products2';
     standalone: false
 })
 export class ProductListComponent {
-  products: Product[] = [...products];
+  products: Product[] = [];
  
 
   constructor(private cartService: CartService){
-   this.cartService.getItemJson().subscribe( products2 => {
-    const productsMap = products2.map(p =>({
-      id: p.product_id,
-      name: p.product_name,
-      price: p.cost,
-      description: p.detail,
-      provider:{id: Number(p.suppiler) , name:""}
-    }));
-
-    this.products = [...this.products, ...productsMap];
-
-    console.log(this.products);
-
+    let listaProductos = this.cartService.mapProducts();
+    listaProductos.forEach(e => {
+    products.push(e)
    });
+
   }
 
   share() {
